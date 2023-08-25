@@ -4,7 +4,12 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+
+
+}
+
+class MyAppState extends State { 
   var questionIndex = 0;
 
   void chooseTicket() {
