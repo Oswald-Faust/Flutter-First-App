@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
   void chooseTicket() {
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
-    print(questionIndex);
+    print(_questionIndex);
   }
 
-  var tickets = ['Quel ticket veux-tu?', 'Quel artiste veux-tu voir ?'];
+  var tickets = [
+    'Quel ticket veux-tu?',
+    'Quel artiste veux-tu voir ?',
+    'Quand veux-tu le voir ?'
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,7 +34,7 @@ class MyAppState extends State<MyApp> {
           ),
           body: Column(
             children: [
-              Text(tickets[questionIndex]),
+              Question(tickets[_questionIndex]),
               ElevatedButton(onPressed: chooseTicket, child: Text('Ticket 1')),
               ElevatedButton(
                   onPressed: () => print('Ticket 2 use !'),
