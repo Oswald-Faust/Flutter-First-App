@@ -5,15 +5,19 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-
-
+  @override
+  State<StatefulWidget> createState() {
+    return MyAppState();
+  }
 }
 
-class MyAppState extends State { 
+class MyAppState extends State<MyApp> {
   var questionIndex = 0;
 
   void chooseTicket() {
-    questionIndex = questionIndex + 1;
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
     print(questionIndex);
   }
 
@@ -27,7 +31,7 @@ class MyAppState extends State {
           ),
           body: Column(
             children: [
-              Text(tickets[0]),
+              Text(tickets[questionIndex]),
               ElevatedButton(onPressed: chooseTicket, child: Text('Ticket 1')),
               ElevatedButton(
                   onPressed: () => print('Ticket 2 use !'),
