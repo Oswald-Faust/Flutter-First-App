@@ -1,6 +1,7 @@
+import 'package:first_app/result.dart';
 import 'package:flutter/material.dart';
-import './question.dart';
-import './answer.dart';
+import './quizz.dart';
+import './result.dart';
 
 void main() => runApp(MyApp());
 
@@ -49,18 +50,13 @@ class _MyAppState extends State<MyApp> {
             title: Text('TicketMaster'),
           ),
           body: _questionIndex < tickets.length
-              ? Column(
-                  children: [
-                    Question(tickets[_questionIndex]['question'].toString()),
-                    ...(tickets[_questionIndex]['answer'] as List<String>)
-                        .map((answer) {
-                      return Answer(chooseTicket, answer);
-                    }).toList()
-                  ],
+              ? Quizz(
+                  chooseTicket: chooseTicket,
+                  questionIndex: _questionIndex,
+                  tickets: tickets,
                 )
-              : Center(
-                  child: Text('Tes choix sont enregistrés !'),
-                )),
+              : Result( )
+      ),
     );
   }
 }
