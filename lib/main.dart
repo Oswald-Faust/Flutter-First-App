@@ -21,10 +21,19 @@ class _MyAppState extends State<MyApp> {
     print(_questionIndex);
   }
 
-  var tickets = [
-    'Quel ticket veux-tu?',
-    'Quel artiste veux-tu voir ?',
-    'Quand veux-tu le voir ?'
+  final tickets = [
+    {
+      'question': 'Quel ticket veux-tu?',
+      'answer': ['10k', '20k', '30k'],
+    },
+    {
+      'question': 'Quel artiste veux-tu voir ?',
+      'answer': ['DidiB', 'Nekfeu', 'Damso'],
+    },
+    {
+      'question': 'Heure du show',
+      'answer': ['15 heures', '18 heures', '20 heures'],
+    },
   ];
   @override
   Widget build(BuildContext context) {
@@ -35,10 +44,11 @@ class _MyAppState extends State<MyApp> {
           ),
           body: Column(
             children: [
-              Question(tickets[_questionIndex]),
-            Answer(),
-            Answer(),
-            Answer(),
+              Question(tickets[_questionIndex]['question'].toString()),
+              ...(tickets[_quexstionIndex]['answer'] as List<String>)
+                  .map((answer) {
+                return Answer(chooseTicket, answer);
+              }).toList()
             ],
           )),
     );
