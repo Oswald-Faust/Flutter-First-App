@@ -12,6 +12,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  static const tickets = [
+    {
+      'question': 'Quel ticket veux-tu?',
+      'answer': ['10k', '20k', '30k'],
+    },
+    {
+      'question': 'Quel artiste veux-tu voir ?',
+      'answer': ['DidiB', 'Nekfeu', 'Damso'],
+    },
+    {
+      'question': 'Heure du show',
+      'answer': ['15 heures', '18 heures', '20 heures'],
+    },
+  ];
+
   var _questionIndex = 0;
 
   void chooseTicket() {
@@ -19,27 +34,13 @@ class _MyAppState extends State<MyApp> {
       _questionIndex = _questionIndex + 1;
     });
     print(_questionIndex);
+    if (_questionIndex < tickets.length) {
+      print("We have more choose !");
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    var tickets = const [
-      {
-        'question': 'Quel ticket veux-tu?',
-        'answer': ['10k', '20k', '30k'],
-      },
-      {
-        'question': 'Quel artiste veux-tu voir ?',
-        'answer': ['DidiB', 'Nekfeu', 'Damso'],
-      },
-      {
-        'question': 'Heure du show',
-        'answer': ['15 heures', '18 heures', '20 heures'],
-      },
-    ];
-
-    tickets = [];
-
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
