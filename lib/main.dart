@@ -15,16 +15,28 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   static const tickets = [
     {
-      'question': 'Quel ticket veux-tu?',
-      'answer': ['10k', '20k', '30k'],
+      'question': 'Quel ticket veux-tu réserver ?',
+      'answer': [
+        {'text': 'Sim', 'type': '10k'},
+        {'text': 'Priorise', 'type': '35k'},
+        {'text': 'VIP', 'type': '50k'},
+      ],
     },
     {
       'question': 'Quel artiste veux-tu voir ?',
-      'answer': ['DidiB', 'Nekfeu', 'Damso'],
+      'answer': [ {'text': 'DidiB', 'type' : '4'},
+        {'text': 'Nekfeu', 'type' : '14'},
+        {'text': 'Lefa', 'type' : '8'},
+        {'text': 'Zayn', 'type' : '14'},
+        {'text': 'Harry Styles', 'type' : '8'}
+     ],
     },
     {
       'question': 'Heure du show',
-      'answer': ['15 heures', '18 heures', '20 heures'],
+      'answer': [   {'text': '14 heures', 'type' : '6'},
+        {'text': '18 heures', 'type' : '6'},
+        {'text': '17 heures', 'type' : '12'}
+      ],
     },
   ];
 
@@ -55,8 +67,7 @@ class _MyAppState extends State<MyApp> {
                   questionIndex: _questionIndex,
                   tickets: tickets,
                 )
-              : Result( )
-      ),
+              : Result()),
     );
   }
 }
