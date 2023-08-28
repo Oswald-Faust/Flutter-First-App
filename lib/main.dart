@@ -36,6 +36,8 @@ class _MyAppState extends State<MyApp> {
     print(_questionIndex);
     if (_questionIndex < tickets.length) {
       print("We have more choose !");
+    } else {
+      print('No conditions');
     }
   }
 
@@ -46,15 +48,19 @@ class _MyAppState extends State<MyApp> {
           appBar: AppBar(
             title: Text('TicketMaster'),
           ),
-          body: Column(
-            children: [
-              Question(tickets[_questionIndex]['question'].toString()),
-              ...(tickets[_questionIndex]['answer'] as List<String>)
-                  .map((answer) {
-                return Answer(chooseTicket, answer);
-              }).toList()
-            ],
-          )),
+          body: _questionIndex < tickets.length
+              ? Column(
+                  children: [
+                    Question(tickets[_questionIndex]['question'].toString()),
+                    ...(tickets[_questionIndex]['answer'] as List<String>)
+                        .map((answer) {
+                      return Answer(chooseTicket, answer);
+                    }).toList()
+                  ],
+                )
+              : Center(
+                  child: Text('Tes choix sont enregistrés !'),
+                )),
     );
   }
 }
