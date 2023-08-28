@@ -18,8 +18,9 @@ class Quizz extends StatelessWidget {
     return Column(
       children: [
         Question(tickets[questionIndex]['question'].toString()),
-        ...(tickets[questionIndex]['answer'] as List<Map<String, Object >>).map((answer) {
-          return Answer(chooseTicket, answer['text' ]);
+        ...(tickets[questionIndex]['answer'] as List<Map<String, Object>>)
+            .map((answer) {
+          return Answer(chooseTicket, answer['text']);
         }).toList()
       ],
     );

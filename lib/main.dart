@@ -24,25 +24,31 @@ class _MyAppState extends State<MyApp> {
     },
     {
       'question': 'Quel artiste veux-tu voir ?',
-      'answer': [ {'text': 'DidiB', 'type' : '4'},
-        {'text': 'Nekfeu', 'type' : '14'},
-        {'text': 'Lefa', 'type' : '8'},
-        {'text': 'Zayn', 'type' : '14'},
-        {'text': 'Harry Styles', 'type' : '8'}
-     ],
+      'answer': [
+        {'text': 'DidiB', 'type': '4'},
+        {'text': 'Nekfeu', 'type': '14'},
+        {'text': 'Lefa', 'type': '8'},
+        {'text': 'Zayn', 'type': '14'},
+        {'text': 'Harry Styles', 'type': '8'}
+      ],
     },
     {
       'question': 'Heure du show',
-      'answer': [   {'text': '14 heures', 'type' : '6'},
-        {'text': '18 heures', 'type' : '6'},
-        {'text': '17 heures', 'type' : '12'}
+      'answer': [
+        {'text': '14 heures', 'type': '6'},
+        {'text': '18 heures', 'type': '6'},
+        {'text': '17 heures', 'type': '12'}
       ],
     },
   ];
 
   var _questionIndex = 0;
+  var idnumber = 0;
 
-  void chooseTicket() {
+  void chooseTicket(int id) {
+    
+    idnumber = idnumber + id; 
+
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
