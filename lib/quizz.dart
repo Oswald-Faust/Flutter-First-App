@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import './answer.dart';
 import './question.dart';
-import './main.dart';
 
 class Quizz extends StatelessWidget {
   final List<Map<String, Object>> tickets;
-  final int questionIndex;
-  final Function chooseTicket;
+  final questionIndex;
+  final chooseTicket;
 
   Quizz(
       {required this.tickets,
@@ -20,7 +19,7 @@ class Quizz extends StatelessWidget {
         Question(tickets[questionIndex]['question'].toString()),
         ...(tickets[questionIndex]['answer'] as List<Map<String, Object>>)
             .map((answer) {
-          return Answer(chooseTicket, answer['text']);
+          return Answer(() => chooseTicket(answer['type']), answer['text']);
         }).toList()
       ],
     );

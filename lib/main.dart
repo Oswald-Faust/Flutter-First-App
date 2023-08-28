@@ -46,8 +46,7 @@ class _MyAppState extends State<MyApp> {
   var idnumber = 0;
 
   void chooseTicket(int id) {
-    
-    idnumber = idnumber + id; 
+    idnumber = idnumber + id;
 
     setState(() {
       _questionIndex = _questionIndex + 1;
@@ -73,7 +72,7 @@ class _MyAppState extends State<MyApp> {
                   questionIndex: _questionIndex,
                   tickets: tickets,
                 )
-              : Result()),
+              : Result(idnumber)),
     );
   }
 }
