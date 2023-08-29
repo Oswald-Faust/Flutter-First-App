@@ -12,15 +12,13 @@ class MyApp extends StatefulWidget {
   }
 }
 
+
 class _MyAppState extends State<MyApp> {
   static const tickets = [
     {
       'question': 'Quel ticket veux-tu réserver ?',
       'answer': [
-        {
-          'text': 'Sim',
-          'type': 10
-        }, // Utilise des entiers au lieu de chaînes de caractères
+        {'text': 'Sim', 'type': 10},
         {'text': 'Priorise', 'type': 35},
         {'text': 'VIP', 'type': 50},
       ],
@@ -30,15 +28,18 @@ class _MyAppState extends State<MyApp> {
       'answer': [
         {'text': 'DidiB', 'type': 4},
         {'text': 'Nekfeu', 'type': 14},
+        {'text': 'Dadju', 'type': 14},
+        {'text': 'Damso', 'type': 14},
+        {'text': 'Orelsan', 'type': 14},
         // ...
       ],
     },
     {
-      'question': 'Heure du show',
+      'question': 'Toh heure de shiw !',
       'answer': [
         {'text': '14 heures', 'type': 6},
-        {'text': '18 heures', 'type': 6},
-        // ...
+        {'text': '18 heures', 'type': 4},
+        {'text': '22 heures', 'type': 2},
       ],
     },
   ];
@@ -46,7 +47,14 @@ class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
   var idnumber = 0;
 
-  void chooseTicket(int id) {
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      idnumber = 0;
+    });
+  }
+
+  void _chooseTicket(int id) {
     idnumber = idnumber + id;
 
     setState(() {
@@ -69,11 +77,11 @@ class _MyAppState extends State<MyApp> {
           ),
           body: _questionIndex < tickets.length
               ? Quizz(
-                  chooseTicket: chooseTicket,
+                  chooseTicket: _chooseTicket,
                   questionIndex: _questionIndex,
                   tickets: tickets,
                 )
-              : Result(idnumber)),
+              : Result(idnumber, _resetQuiz)),
     );
   }
 }
