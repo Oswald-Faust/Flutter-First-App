@@ -17,27 +17,28 @@ class _MyAppState extends State<MyApp> {
     {
       'question': 'Quel ticket veux-tu réserver ?',
       'answer': [
-        {'text': 'Sim', 'type': '10k'},
-        {'text': 'Priorise', 'type': '35k'},
-        {'text': 'VIP', 'type': '50k'},
+        {
+          'text': 'Sim',
+          'type': 10
+        }, // Utilise des entiers au lieu de chaînes de caractères
+        {'text': 'Priorise', 'type': 35},
+        {'text': 'VIP', 'type': 50},
       ],
     },
     {
       'question': 'Quel artiste veux-tu voir ?',
       'answer': [
-        {'text': 'DidiB', 'type': '4'},
-        {'text': 'Nekfeu', 'type': '14'},
-        {'text': 'Lefa', 'type': '8'},
-        {'text': 'Zayn', 'type': '14'},
-        {'text': 'Harry Styles', 'type': '8'}
+        {'text': 'DidiB', 'type': 4},
+        {'text': 'Nekfeu', 'type': 14},
+        // ...
       ],
     },
     {
       'question': 'Heure du show',
       'answer': [
-        {'text': '14 heures', 'type': '6'},
-        {'text': '18 heures', 'type': '6'},
-        {'text': '17 heures', 'type': '12'}
+        {'text': '14 heures', 'type': 6},
+        {'text': '18 heures', 'type': 6},
+        // ...
       ],
     },
   ];

@@ -19,7 +19,7 @@ class Quizz extends StatelessWidget {
         Question(tickets[questionIndex]['question'].toString()),
         ...(tickets[questionIndex]['answer'] as List<Map<String, Object>>)
             .map((answer) {
-          return Answer(() => chooseTicket(answer['type']), answer['text']);
+          return Answer(() => chooseTicket(answer['type']), 'nyn');
         }).toList()
       ],
     );
